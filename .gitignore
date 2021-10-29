@@ -1,0 +1,13 @@
+target/
+target/**
+!**/src/test/**
+node_modules
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.ipr
+
+### VS Code ###
+.vscode
