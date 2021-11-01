@@ -21,7 +21,7 @@ import java.nio.charset.Charset;
 import java.util.List;
 
 public class ApiRequest {
-    private static Logger logger = LoggerFactory.getLogger("API_REQ");
+    private static Logger logger = LoggerFactory.getLogger(ApiRequest.class);
 
     public static <T> ApiResponse<T> post(String url, List<NameValuePair> params, String data, Class resultClass) {
         CloseableHttpClient client = HttpClients.createDefault();
@@ -44,7 +44,7 @@ public class ApiRequest {
         ResponseHandler<String> responseHandler = new BasicResponseHandler();
         String resp = null;
         try {
-            logger.debug("post:==>" + uri.toString());
+            logger.info("post data:===>" + data);
             resp = client.execute(req, responseHandler);
         } catch (IOException e) {
             throw new PayException("读取响应数据异常", e);
@@ -52,8 +52,7 @@ public class ApiRequest {
         if (resp == null || resp.length() == 0) {
             throw new PayException("获取支付服务响应异常");
         }
-        logger.debug("return:==>" + resp);
-
+        logger.info("return:==>" + resp);
         Gson gson = new Gson();
         Type type = type(ApiResponse.class, resultClass);
         ApiResponse response = gson.fromJson(resp, type);

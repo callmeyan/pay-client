@@ -5,8 +5,8 @@ import java.util.Date;
 public class Order {
     private String out_trade_no;
     private Long total_amount;
-    private Date time_expire;
-    private Date time_start;
+    private String time_expire;
+    private String time_start;
     private String title;
     private String detail;
     private String notify_url;
@@ -29,20 +29,20 @@ public class Order {
         return this;
     }
 
-    public Date getTime_expire() {
+    public String getTime_expire() {
         return time_expire;
     }
 
-    public Order setTime_expire(Date time_expire) {
+    public Order setTime_expire(String time_expire) {
         this.time_expire = time_expire;
         return this;
     }
 
-    public Date getTime_start() {
+    public String getTime_start() {
         return time_start;
     }
 
-    public Order setTime_start(Date time_start) {
+    public Order setTime_start(String time_start) {
         this.time_start = time_start;
         return this;
     }
